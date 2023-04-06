@@ -1,4 +1,4 @@
-# CS374-Team2
+# Team2
 
 ## App Name
 <span style= "font-size: 2rem; font-weight: bold;">App</span>
