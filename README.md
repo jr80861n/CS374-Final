@@ -1,4 +1,4 @@
-# Team2
+# Team 2
 
 ## App Name
 <span style= "font-size: 2rem; font-weight: bold;">App</span>
