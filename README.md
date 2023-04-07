@@ -12,6 +12,9 @@
 
 ## Idea Proposal
 
+[Idea Proposal]()
+
 ## Design
 
+[Design]()
 
