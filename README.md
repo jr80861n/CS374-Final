@@ -5,7 +5,7 @@
 <br>
 <img src="" alt="Logo" class="logo">
 
-## App Description 
+## Idea Proposal
 <p>
 
 </p>
