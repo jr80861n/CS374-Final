@@ -5,9 +5,13 @@
 <br>
 <img src="" alt="Logo" class="logo">
 
-## Idea Proposal
+## App Description 
 <p>
 
 </p>
+
+## Idea Proposal
+
+## Design
 
 
