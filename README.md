@@ -5,6 +5,19 @@
 <br>
 <img src="" alt="Logo" class="logo">
 
+## Team Members
+<p align="center">
+<table>
+  <tbody>
+    <tr>
+      <td allign="center"><a href="https://github.com/jr80861n"><img src="https://avatars.githubusercontent.com/u/70288465?v=4" width="100px;" alt=""/><br/><sub><b>Joseph R.</b></sub></a><br/></td>
+       <td allign="center"><a href="https://github.com/Yaredyy"><img src="https://avatars.githubusercontent.com/u/79294242?v=4" width="100px;" alt=""/><br/><sub><b>Yared Y.</b></sub></a><br/></td>
+      <td allign="center"><a href="https://github.com/salvatore-ardisi"><img src="https://avatars.githubusercontent.com/u/7751641?v=4" width="100px;" alt=""/><br/><sub><b>Salvatore A.</b></sub></a><br/></td>
+     </tr>
+    </tbody>
+   </table>
+  </p>
+
 ## App Description 
 <p>
 
