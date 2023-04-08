@@ -67,6 +67,13 @@
         <img src="https://img.shields.io/badge/Gradle-02303A.svg?style=for-the-badge&logo=Gradle&logoColor=white" />   
     </a>
     
+<a href="" alt="Zoom">
+        <img src="https://img.shields.io/badge/Zoom-2D8CFF?style=for-the-badge&logo=zoom&logoColor=white" />   
+    </a>
+    
+<a href="" alt="Google">
+        <img src="https://img.shields.io/badge/google-4285F4?style=for-the-badge&logo=google&logoColor=white" />   
+    </a>
 
 </p>
 
