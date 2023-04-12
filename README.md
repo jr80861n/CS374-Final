@@ -1,9 +1,9 @@
 # Team 2
 
 ## App Name
-<span style= "font-size: 2rem; font-weight: bold;">App</span>
+<span style= "font-size: 2rem; font-weight: bold;">BudgetBites</span>
 <br>
-<img src="" alt="Logo" class="logo">
+<img src="" alt="BudgetBites" class="logo">
 
 ## Team Members
 <p align="center">
