@@ -3,7 +3,7 @@
 ## App Name
 <span style= "font-size: 2rem; font-weight: bold;">BudgetBites</span>
 <br>
-<img src=""C:\Users\josep\Downloads\Budgetapp.png"" alt="BudgetBites" class="logo">
+<img src="C:\Users\josep\Downloads\Budgetapp.png" alt="BudgetBites" class="logo">
 
 ## Team Members
 <p align="center">
