@@ -25,7 +25,7 @@
 
 ## Idea Proposal & Research
 
-[Idea Proposal & Research](https://docs.google.com/document/d/1e09MMf14EEDRFasP20RfstbyDY0kqZ78ioYH7oT6dmk/edit?usp=sharing)
+[Idea Proposal & Research](https://docs.google.com/document/d/1AG_kbZaE2bk8zdjYur53V_-KmTCyMdrO/edit?usp=sharing&ouid=108707430322438717590&rtpof=true&sd=true)
 
 [User/Persona](https://docs.google.com/document/d/1O7MmbbgCoHpk17KDkjgrTJn174TVnJ_QJzBpbeRmXC0/edit?usp=sharing)
 
