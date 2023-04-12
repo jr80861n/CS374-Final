@@ -1,7 +1,7 @@
 # Team 2
 
 ## App Name
-<span style= "font-size: 2rem; font-weight: bold;">BudgetBites</span>
+<h3 style= "font-size: 2rem; font-weight: bold;">BudgetBites</h3>
 <br>
 <img src="https://i.imgur.com/Y9DJnon.png" alt="BudgetBites" class="logo">
 
