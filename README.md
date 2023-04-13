@@ -19,9 +19,9 @@
   </p>
 
 ## App Description 
-<p>
+<p> BudgetBites is the perfect app for students looking to improve their financial literacy. With easy-to-use features and a user-friendly interface, BudgetBites provides a comprehensive guide to managing personal finances.
 
-</p>
+Through BudgetBites, students can learn how to create and maintain a budget, track their expenses, and set financial goals. The app also offers tips on saving money, avoiding debt, and building credit. With BudgetBites, students can gain the knowledge and skills they need to take control of their finances and make smart financial decisions.</p>
 
 ## Idea Proposal & Research
 
