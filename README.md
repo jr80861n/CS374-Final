@@ -38,6 +38,26 @@ Through BudgetBites, students can learn how to create and maintain a budget, tra
 <!-- Video? -->
 [Prototype]()
 
+### Sprint 1
+
+* [Sprint Planning]()
+* [Scrums]()
+
+
+### Sprint 2
+
+* [Sprint Planning]()
+* [Scrums]()
+
+
+### Sprint 3
+
+* [Sprint Planning]()
+* [Scrums]()
+
+
+
+
 ## Tools & APIs
 
   <br>
