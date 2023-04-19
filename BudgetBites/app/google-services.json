@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "437188624218",
+    "firebase_url": "https://budget-bites-b735c-default-rtdb.firebaseio.com",
+    "project_id": "budget-bites-b735c",
+    "storage_bucket": "budget-bites-b735c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:437188624218:android:a790248a832864cd51fd63",
+        "android_client_info": {
+          "package_name": "com.example.budgetbites"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "437188624218-r2vgj0dgsmoocdm1gg4aea7a41ctr907.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBquA6JiiCRpGZwWUSQsD-5wZPHFj5_uTQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "437188624218-6duv73dign92veknb50kvr796qcqod65.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
