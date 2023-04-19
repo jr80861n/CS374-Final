@@ -41,19 +41,19 @@ Through BudgetBites, students can learn how to create and maintain a budget, tra
 ### Sprint 1
 
 * [Sprint Planning](https://docs.google.com/document/d/1X9jVHoHZVBSQ6mIRSGzxPKbt7QfOt5M-iIP85YqY4yI/edit)
-* [Scrums]()
+* [Scrums](https://docs.google.com/document/d/1pn1msb0Wpim6cX1GzoynRcUEIjEd19b42KucGvItotA/edit)
 
 
 ### Sprint 2
 
-* [Sprint Planning]()
-* [Scrums]()
+* [Sprint Planning](https://docs.google.com/document/d/16Rmpo2I2D_sMmbv0PZfQUrvgsXpwixqENH0MGTZDRYU/edit)
+* [Scrums](https://docs.google.com/document/d/1pn1msb0Wpim6cX1GzoynRcUEIjEd19b42KucGvItotA/edit)
 
 
 ### Sprint 3
 
-* [Sprint Planning]()
-* [Scrums]()
+* [Sprint Planning](https://docs.google.com/document/d/14DRewO-gU2zQncjBiBEufYghYmmBpYEUJc1LnbslWsQ/edit)
+* [Scrums](https://docs.google.com/document/d/1pn1msb0Wpim6cX1GzoynRcUEIjEd19b42KucGvItotA/edit)
 
 
 
