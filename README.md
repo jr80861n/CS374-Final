@@ -35,7 +35,7 @@ Through BudgetBites, students can learn how to create and maintain a budget, tra
   <table>
     <tbody>
       <tr>
-        <td align="center"><img src="https://github.com/jr80861n/CS374-Final/blob/main/mockrocket-export.gif" alt="Mockrocket"></td>
+        <td align="center"><img src="https://github.com/jr80861n/CS374-Final/blob/main/mockrocket-export.gif" alt="Mockrocket" width="450"></td>
         <td align="center"></td>
       </tr>
     </tbody>
