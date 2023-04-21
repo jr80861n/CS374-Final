@@ -30,7 +30,6 @@ Through BudgetBites, students can learn how to create and maintain a budget, tra
 [User/Persona](https://docs.google.com/document/d/1O7MmbbgCoHpk17KDkjgrTJn174TVnJ_QJzBpbeRmXC0/edit?usp=sharing)
 
 ## Design
-
 <p align="center">
   <table>
     <tbody>
