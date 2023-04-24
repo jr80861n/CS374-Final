@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         if (result.getResultCode() == RESULT_OK) {
             // Successfully signed in
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            Toast.makeText(this,"Sign in Succesful!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Sign in Successful!",Toast.LENGTH_SHORT).show();
         } else {
             // Unsuccessful sign in
             Toast.makeText(this, "Sign in Failed!", Toast.LENGTH_SHORT).show();
