@@ -25,4 +25,5 @@ public class Profile extends AppCompatActivity {
 
         //Setting up the Image feature that will allow you to pick a picture from your gallery
 
+    }
 }
