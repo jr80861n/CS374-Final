@@ -58,6 +58,7 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         String lastName = lastnameEditText.getText().toString();
         String email = emailEditText.getText().toString();
 
+
         //This is where you would save the user's profile data to the database
 
 
