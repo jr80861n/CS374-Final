@@ -52,5 +52,28 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
 
     }
 
+    //Method that will give you the ability to save the user's profile data
+    public void saveProfileInfo(){
+        String firstName = firstNameEditText.getText().toString();
+        String lastName = lastnameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+
+        //This is where you would save the user's profile data to the database
+
+
+    }
+
+    //Method that will give you the ability to delete the user's profile data
+    public void deleteProfileInfo(){
+        String firstName = firstNameEditText.getText().toString();
+        String lastName = lastnameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+
+        //This is where you would delete the user's profile data from the database
+
+
+
+    }
+
 
 }
