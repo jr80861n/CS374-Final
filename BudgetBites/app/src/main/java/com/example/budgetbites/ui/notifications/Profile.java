@@ -1,6 +1,7 @@
 package com.example.budgetbites.ui.notifications;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -49,6 +50,43 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
             profileImageView.setImageURI(selectedImage);
 
         }
+
+    }
+
+    //Method that will give you the ability to save the user's profile data
+    public void saveProfileInfo(){
+        String firstName = firstNameEditText.getText().toString();
+        String lastName = lastnameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
+
+
+        //This is where you would save the user's profile data to the database
+        SharedPreferences preferences = getSharedPreferences("profile_info", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("firstName", firstName);
+        editor.putString("lastName", lastName);
+        editor.putString("email", email);
+        editor.apply();
+
+    }
+
+    //Method that will give you the ability to delete the user's profile data
+    public void deleteProfileInfo(){
+        SharedPreferences preferences = getSharedPreferences("profile_info", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.remove("firstName");
+        editor.remove("lastName");
+        editor.remove("email");
+        editor.apply();
+
+
+        //Data that will be deleted from the database
+        firstNameEditText.setText("");
+        lastnameEditText.setText("");
+        emailEditText.setText("");
+        profileImageView.setImageResource(R.drawable.ic_launcher_background);//change the name
+
+
 
     }
 
