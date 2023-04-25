@@ -11,9 +11,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="392dp"
         android:ems="10"
+        android:hint="@string/type_first_name"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.577"
@@ -25,9 +25,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="304dp"
         android:ems="10"
+        android:hint="@string/type_last_name"
         android:inputType="text"
         android:minHeight="48dp"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.582"
@@ -39,9 +39,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="212dp"
         android:ems="10"
-        android:inputType="text"
+        android:hint="@string/type_email"
+        android:inputType="text|textEmailAddress"
         android:minHeight="48dp"
-        android:text="Name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.582"
@@ -55,6 +55,28 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@tools:sample/avatars"
+        android:contentDescription="@string/users_photo_selection" />
+
+    <Button
+        android:id="@+id/Save_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="116dp"
+        android:layout_marginBottom="48dp"
+        android:text="@string/save_Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/Delete_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="48dp"
+        android:layout_marginBottom="48dp"
+        android:text="@string/delete_Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Save_Button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

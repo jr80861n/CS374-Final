@@ -3,4 +3,10 @@
     <string name="title_history">History</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_profile">Profile</string>
+    <string name="save_Button">Save</string>
+    <string name="delete_Button">Delete</string>
+    <string name="type_email">Type email</string>
+    <string name="type_last_name">Type last name</string>
+    <string name="type_first_name">Type first name</string>
+    <string name="users_photo_selection">Users photo selection</string>
 </resources>
