@@ -1,19 +1,18 @@
-package com.example.budgetbites.ui.notifications;
+package com.example.budgetbites;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.budgetbites.R;
-
 public class Profile extends AppCompatActivity {
-    private EditText firstNameEditText, lastnameEditText, emailEditText;
+    private EditText firstNameEditText, lastnameEditText, emailEditText ;
+    private Button saveButton, deleteButton;
     private ImageView profileImageView;
 
     @Override
@@ -27,18 +26,25 @@ public class Profile extends AppCompatActivity {
         lastnameEditText = findViewById(R.id.lastnameEditText);
         emailEditText = findViewById(R.id.emailEditText);
         profileImageView = findViewById(R.id.profileImageView);
+        saveButton = findViewById(R.id.Save_Button);
+        deleteButton = findViewById(R.id.Delete_button);
+
+
 
 
         //Setting up the Image feature that will allow you to pick a picture from your gallery
-        profileImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI); //This is the intent that will allow you to pick a picture from your gallery
+        profileImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI); //This is the intent that will allow you to pick a picture from your gallery
 startActivityForResult(intent, 1); //This is the code that will allow you to pick a picture from your gallery
 
-            }
+        });
+        saveButton.setOnClickListener(v -> {
+            saveProfileInfo();
+        });
 
-         });
+        deleteButton.setOnClickListener(v -> {
+            deleteProfileInfo();
+        });
     }
 
     @Override
