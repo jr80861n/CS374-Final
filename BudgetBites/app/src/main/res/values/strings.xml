@@ -9,4 +9,5 @@
     <string name="type_last_name">Type last name</string>
     <string name="type_first_name">Type first name</string>
     <string name="users_photo_selection">Users photo selection</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

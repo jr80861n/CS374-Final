@@ -10,9 +10,10 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Profile extends AppCompatActivity {
     private EditText firstNameEditText, lastnameEditText, emailEditText ;
-    private Button saveButton, deleteButton;
     private ImageView profileImageView;
 
     @Override
@@ -26,8 +27,8 @@ public class Profile extends AppCompatActivity {
         lastnameEditText = findViewById(R.id.lastnameEditText);
         emailEditText = findViewById(R.id.emailEditText);
         profileImageView = findViewById(R.id.profileImageView);
-        saveButton = findViewById(R.id.Save_Button);
-        deleteButton = findViewById(R.id.Delete_button);
+        Button saveButton = findViewById(R.id.Save_Button);
+        Button deleteButton = findViewById(R.id.Delete_button);
 
 
 
@@ -94,6 +95,12 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
 
 
 
+    }
+
+    public void signOut(){
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(Profile.this, MainActivity.class);
+        startActivity(intent);
     }
 
 
