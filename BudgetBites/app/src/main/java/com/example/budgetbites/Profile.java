@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,8 +30,7 @@ public class Profile extends AppCompatActivity {
         profileImageView = findViewById(R.id.profileImageView);
         Button saveButton = findViewById(R.id.Save_Button);
         Button deleteButton = findViewById(R.id.Delete_button);
-
-
+        Button signOutButton = findViewById(R.id.Sign_out);
 
 
         //Setting up the Image feature that will allow you to pick a picture from your gallery
@@ -39,13 +39,19 @@ public class Profile extends AppCompatActivity {
 startActivityForResult(intent, 1); //This is the code that will allow you to pick a picture from your gallery
 
         });
-        saveButton.setOnClickListener(v -> {
-            saveProfileInfo();
+
+        saveButton.setOnClickListener(v -> saveProfileInfo());
+
+        deleteButton.setOnClickListener(v -> deleteProfileInfo());
+
+        signOutButton.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(Profile.this, MainActivity.class);
+            startActivity(intent);
+
         });
 
-        deleteButton.setOnClickListener(v -> {
-            deleteProfileInfo();
-        });
+
     }
 
     @Override
@@ -75,6 +81,9 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         editor.putString("email", email);
         editor.apply();
 
+        Toast.makeText(this, "Profile Saved", Toast.LENGTH_SHORT).show();
+
+
     }
 
     //Method that will give you the ability to delete the user's profile data
@@ -93,15 +102,17 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         emailEditText.setText("");
         profileImageView.setImageResource(R.drawable.ic_launcher_background);//change the name
 
+        Toast.makeText(this, "Profile Deleted", Toast.LENGTH_SHORT).show();
+
+
+
 
 
     }
 
-    public void signOut(){
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(Profile.this, MainActivity.class);
-        startActivity(intent);
-    }
+
+
+
 
 
 }
