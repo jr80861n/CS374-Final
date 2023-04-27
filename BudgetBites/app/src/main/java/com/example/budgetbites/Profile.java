@@ -31,6 +31,7 @@ public class Profile extends AppCompatActivity {
         Button saveButton = findViewById(R.id.Save_Button);
         Button deleteButton = findViewById(R.id.Delete_button);
         Button signOutButton = findViewById(R.id.Sign_out);
+        Button changePasswordButton = findViewById(R.id.Change_password_button);
 
         //Loading the saved profile info
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
@@ -54,7 +55,6 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
 
         });
 
-
         saveButton.setOnClickListener(v -> saveProfileInfo());
 
         deleteButton.setOnClickListener(v -> deleteProfileInfo());
@@ -65,7 +65,12 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
             startActivity(intent);
 
         });
+        changePasswordButton.setOnClickListener(v -> {
+            //FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(Profile.this, MainActivity.class);
+            startActivity(intent);
 
+        });//test the change password button and make a change password activity/fragment
 
     }
 
@@ -93,6 +98,13 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         String firstName = firstNameEditText.getText().toString();
         String lastName = lastnameEditText.getText().toString();
         String email = emailEditText.getText().toString();
+
+        //Validating the user's input
+        if(firstName.equals("") || lastName.equals("") || email.equals("")){
+            Toast.makeText(this, "Please enter all the information", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
 
         //This is where you would save the user's profile data to the database
@@ -127,12 +139,7 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
 
         Toast.makeText(this, "Profile Deleted :(", Toast.LENGTH_SHORT).show();
 
-
     }
-
-
-
-
 
 
 }
