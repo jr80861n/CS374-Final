@@ -32,6 +32,20 @@ public class Profile extends AppCompatActivity {
         Button deleteButton = findViewById(R.id.Delete_button);
         Button signOutButton = findViewById(R.id.Sign_out);
 
+        //Loading the saved profile info
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        String firstName = sharedPreferences.getString("firstName", "");
+        String lastName = sharedPreferences.getString("lastName", "");
+        String email = sharedPreferences.getString("email", "");
+        String profileImage = sharedPreferences.getString("profileImage", "");
+        firstNameEditText.setText(firstName);
+        lastnameEditText.setText(lastName);
+        emailEditText.setText(email);
+        if (!profileImage.equals("")) {
+            profileImageView.setImageURI(Uri.parse(profileImage));
+        }// test the if statement
+
+
 
         //Setting up the Image feature that will allow you to pick a picture from your gallery
         profileImageView.setOnClickListener(v -> {
@@ -62,6 +76,12 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         if(requestCode == 1 && resultCode == RESULT_OK && data != null) {
             Uri selectedImage = data.getData();
             profileImageView.setImageURI(selectedImage);
+
+            //This is where you would save the user's profile image to the database
+            SharedPreferences preferences = getSharedPreferences("profile_info", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("profileImage", selectedImage.toString());
+            editor.apply();
 
         }
 
@@ -109,6 +129,9 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
 
 
     }
+
+
+
 
 
 
