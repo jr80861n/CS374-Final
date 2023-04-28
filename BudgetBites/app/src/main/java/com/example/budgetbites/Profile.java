@@ -91,6 +91,7 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         }
 
 
+
     }
 
     //Method that will give you the ability to save the user's profile data
@@ -114,6 +115,7 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         editor.putString("lastName", lastName);
         editor.putString("email", email);
         editor.apply();
+
 
 
         Toast.makeText(this, "Profile Saved, welcome :)", Toast.LENGTH_SHORT).show();
@@ -140,6 +142,8 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         Toast.makeText(this, "Profile Deleted :(", Toast.LENGTH_SHORT).show();
 
     }
+
+
 
 
 }
