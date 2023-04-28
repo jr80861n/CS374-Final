@@ -31,14 +31,6 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth fa;
     private FirebaseUser fu;
 
-    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(new FirebaseAuthUIActivityResultContract(),
-            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
-                @Override
-                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
-                    onSignInResult(result);
-                }
-            }
-    );
 
 
     @Override
@@ -51,13 +43,6 @@ public class MainActivity extends AppCompatActivity {
         fa = FirebaseAuth.getInstance();
         fu = fa.getCurrentUser();
 
-        if(fu==null){
-            List<AuthUI.IdpConfig> providers = Arrays.asList(new AuthUI.IdpConfig.EmailBuilder().build(), new AuthUI.IdpConfig.GoogleBuilder().build());
-
-            Intent signInIntent = AuthUI.getInstance().createSignInIntentBuilder().setLogo(R.drawable.budgetbites).setAvailableProviders(providers).build();
-
-            signInLauncher.launch(signInIntent);
-        }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 
@@ -70,15 +55,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
-        IdpResponse response = result.getIdpResponse();
-        if (result.getResultCode() == RESULT_OK) {
-            // Successfully signed in
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            Toast.makeText(this,"Sign in Successful!",Toast.LENGTH_SHORT).show();
-        } else {
-            // Unsuccessful sign in
-            Toast.makeText(this, "Sign in Failed!", Toast.LENGTH_SHORT).show();
-        }
-    }
 }
