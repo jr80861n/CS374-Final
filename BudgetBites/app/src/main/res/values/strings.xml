@@ -10,4 +10,6 @@
     <string name="type_first_name">Type first name</string>
     <string name="users_photo_selection">Users photo selection</string>
     <string name="sign_out">Sign Out</string>
+    <string name="password">Password</string>
+    <string name="change_password">Change Password\n</string>
 </resources>

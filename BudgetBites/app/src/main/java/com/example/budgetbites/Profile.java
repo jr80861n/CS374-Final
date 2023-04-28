@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,7 +30,21 @@ public class Profile extends AppCompatActivity {
         profileImageView = findViewById(R.id.profileImageView);
         Button saveButton = findViewById(R.id.Save_Button);
         Button deleteButton = findViewById(R.id.Delete_button);
+        Button signOutButton = findViewById(R.id.Sign_out);
+        Button changePasswordButton = findViewById(R.id.Change_password_button);
 
+        //Loading the saved profile info
+        SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
+        String firstName = sharedPreferences.getString("firstName", "");
+        String lastName = sharedPreferences.getString("lastName", "");
+        String email = sharedPreferences.getString("email", "");
+        String profileImage = sharedPreferences.getString("profileImage", "");
+        firstNameEditText.setText(firstName);
+        lastnameEditText.setText(lastName);
+        emailEditText.setText(email);
+        if (!profileImage.equals("")) {
+            profileImageView.setImageURI(Uri.parse(profileImage));
+        }// test the if statement
 
 
 
@@ -39,13 +54,24 @@ public class Profile extends AppCompatActivity {
 startActivityForResult(intent, 1); //This is the code that will allow you to pick a picture from your gallery
 
         });
-        saveButton.setOnClickListener(v -> {
-            saveProfileInfo();
-        });
 
-        deleteButton.setOnClickListener(v -> {
-            deleteProfileInfo();
+        saveButton.setOnClickListener(v -> saveProfileInfo());
+
+        deleteButton.setOnClickListener(v -> deleteProfileInfo());
+
+        signOutButton.setOnClickListener(v -> {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(Profile.this, MainActivity.class);
+            startActivity(intent);
+
         });
+        changePasswordButton.setOnClickListener(v -> {
+            //FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(Profile.this, MainActivity.class);
+            startActivity(intent);
+
+        });//test the change password button and make a change password activity/fragment
+
     }
 
     @Override
@@ -56,7 +82,15 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
             Uri selectedImage = data.getData();
             profileImageView.setImageURI(selectedImage);
 
+            //This is where you would save the user's profile image to the database
+            SharedPreferences preferences = getSharedPreferences("profile_info", MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putString("profileImage", selectedImage.toString());
+            editor.apply();
+
         }
+
+
 
     }
 
@@ -66,6 +100,13 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         String lastName = lastnameEditText.getText().toString();
         String email = emailEditText.getText().toString();
 
+        //Validating the user's input
+        if(firstName.equals("") || lastName.equals("") || email.equals("")){
+            Toast.makeText(this, "Please enter all the information", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
 
         //This is where you would save the user's profile data to the database
         SharedPreferences preferences = getSharedPreferences("profile_info", MODE_PRIVATE);
@@ -74,6 +115,11 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         editor.putString("lastName", lastName);
         editor.putString("email", email);
         editor.apply();
+
+
+
+        Toast.makeText(this, "Profile Saved, welcome :)", Toast.LENGTH_SHORT).show();
+
 
     }
 
@@ -93,15 +139,11 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         emailEditText.setText("");
         profileImageView.setImageResource(R.drawable.ic_launcher_background);//change the name
 
-
+        Toast.makeText(this, "Profile Deleted :(", Toast.LENGTH_SHORT).show();
 
     }
 
-    public void signOut(){
-        FirebaseAuth.getInstance().signOut();
-        Intent intent = new Intent(Profile.this, MainActivity.class);
-        startActivity(intent);
-    }
+
 
 
 }
