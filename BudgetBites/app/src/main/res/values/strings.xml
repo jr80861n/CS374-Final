@@ -15,4 +15,6 @@
     <string name="login">Login</string>
     <string name="email">Email</string>
     <string name="enter_password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot password?</string>
 </resources>
