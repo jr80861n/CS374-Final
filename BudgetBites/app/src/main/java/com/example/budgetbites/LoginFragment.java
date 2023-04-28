@@ -10,12 +10,14 @@ import androidx.fragment.app.Fragment;
 public class LoginFragment extends Fragment
 {
 
-   public LoginFragment() {
+   public LoginFragment()
+   {
    }
 
    @Override
    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                            Bundle savedInstanceState) {
+                            Bundle savedInstanceState)
+   {
       return inflater.inflate(R.layout.fragment_login, container, false);
    }
 }
