@@ -18,4 +18,5 @@
     <string name="remember_me">Remember me</string>
     <string name="forgot_password">Forgot password?</string>
     <string name="login_button">Login</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
