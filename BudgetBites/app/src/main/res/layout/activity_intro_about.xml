@@ -21,8 +21,8 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="302dp"
-        android:layout_height="99dp"
-        android:text="Here at Budget Bites, we know what it's like to be a starving student. The days of worrying whether your gonna make it till the next paycheck or allowance can be frightening."
+        android:layout_height="wrap_content"
+        android:text="Here at Budget Bites, we know what it's like to be a starving student. The days of worrying whether your gonna make it till the next paycheck or allowance can be frightening. Our mission is to solve this common problem, here at Budget Bites."
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,7 +31,7 @@
         app:layout_constraintVertical_bias="0.584" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button4"
+        android:id="@+id/ContinueButton"
         android:layout_width="253dp"
         android:layout_height="77dp"
         android:layout_marginTop="72dp"
