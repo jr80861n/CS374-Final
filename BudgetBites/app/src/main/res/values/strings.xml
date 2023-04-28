@@ -23,4 +23,6 @@
     <string name="email_input">Email</string>
     <string name="password_input">Password</string>
     <string name="sign_up_button">Sign up</string>
+    <string name="log_in">Log in</string>
+    <string name="sign_up_activity">Sign up</string>
 </resources>
