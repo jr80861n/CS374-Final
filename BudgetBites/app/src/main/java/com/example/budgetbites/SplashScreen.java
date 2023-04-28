@@ -10,7 +10,6 @@ import com.google.firebase.analytics.FirebaseAnalytics;
 public class SplashScreen extends AppCompatActivity {
 
     LottieAnimationView lottie;
-    private FirebaseAnalytics mFirebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -23,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
             android.content.Intent i = new android.content.Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
         }, 2700);
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
     }
 

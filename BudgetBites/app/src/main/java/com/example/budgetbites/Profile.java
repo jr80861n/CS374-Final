@@ -137,7 +137,7 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         firstNameEditText.setText("");
         lastnameEditText.setText("");
         emailEditText.setText("");
-        profileImageView.setImageResource(R.drawable.ic_launcher_background);//change the name
+        profileImageView.setImageResource(R.drawable.no_profile_picture_icon);//change the name
 
         Toast.makeText(this, "Profile Deleted :(", Toast.LENGTH_SHORT).show();
 
