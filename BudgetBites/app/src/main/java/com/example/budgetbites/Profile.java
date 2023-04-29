@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Profile extends AppCompatActivity {
-    private EditText firstNameEditText, lastnameEditText, emailEditText ;
+    private EditText fullNameEditText, emailEditText, BioEditText ;
     private ImageView profileImageView;
 
     @Override
@@ -24,9 +24,9 @@ public class Profile extends AppCompatActivity {
 
 
         //Adding the info to the profile
-        firstNameEditText = findViewById(R.id.firstNameEditText);
-        lastnameEditText = findViewById(R.id.lastnameEditText);
+        fullNameEditText = findViewById(R.id.fullNameEdit);
         emailEditText = findViewById(R.id.emailEditText);
+        BioEditText = findViewById(R.id.Bio_Edit_Text);
         profileImageView = findViewById(R.id.profileImageView);
         Button saveButton = findViewById(R.id.Save_Button);
         Button deleteButton = findViewById(R.id.Delete_button);
@@ -35,13 +35,12 @@ public class Profile extends AppCompatActivity {
 
         //Loading the saved profile info
         SharedPreferences sharedPreferences = getSharedPreferences("sharedPrefs", MODE_PRIVATE);
-        String firstName = sharedPreferences.getString("firstName", "");
-        String lastName = sharedPreferences.getString("lastName", "");
+        String fullName = sharedPreferences.getString("fullName", "");
         String email = sharedPreferences.getString("email", "");
         String profileImage = sharedPreferences.getString("profileImage", "");
-        firstNameEditText.setText(firstName);
-        lastnameEditText.setText(lastName);
+        fullNameEditText.setText(fullName);
         emailEditText.setText(email);
+        BioEditText.setText((CharSequence) BioEditText);
         if (!profileImage.equals("")) {
             profileImageView.setImageURI(Uri.parse(profileImage));
         }// test the if statement
@@ -96,12 +95,13 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
 
     //Method that will give you the ability to save the user's profile data
     public void saveProfileInfo(){
-        String firstName = firstNameEditText.getText().toString();
-        String lastName = lastnameEditText.getText().toString();
+
+        String fullName = fullNameEditText.getText().toString();
         String email = emailEditText.getText().toString();
+        String Bio = BioEditText.getText().toString();
 
         //Validating the user's input
-        if(firstName.equals("") || lastName.equals("") || email.equals("")){
+        if(fullName.equals("") || email.equals("")){
             Toast.makeText(this, "Please enter all the information", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -111,9 +111,9 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         //This is where you would save the user's profile data to the database
         SharedPreferences preferences = getSharedPreferences("profile_info", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("firstName", firstName);
-        editor.putString("lastName", lastName);
+        editor.putString("fullName", fullName);
         editor.putString("email", email);
+        editor.putString("Bio", Bio);
         editor.apply();
 
 
@@ -127,17 +127,17 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
     public void deleteProfileInfo(){
         SharedPreferences preferences = getSharedPreferences("profile_info", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.remove("firstName");
-        editor.remove("lastName");
+        editor.remove("fullName");
         editor.remove("email");
+        editor.remove("bio");
         editor.apply();
 
 
         //Data that will be deleted from the database
-        firstNameEditText.setText("");
-        lastnameEditText.setText("");
+        fullNameEditText.setText("");
         emailEditText.setText("");
-        profileImageView.setImageResource(R.drawable.ic_launcher_background);//change the name
+        profileImageView.setImageResource(R.drawable.no_profile_picture_icon);//change the name
+        BioEditText.setText("");
 
         Toast.makeText(this, "Profile Deleted :(", Toast.LENGTH_SHORT).show();
 

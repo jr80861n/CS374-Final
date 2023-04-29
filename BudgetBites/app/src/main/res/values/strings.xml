@@ -6,8 +6,7 @@
     <string name="save_Button">Save</string>
     <string name="delete_Button">Delete</string>
     <string name="type_email">Type email</string>
-    <string name="type_last_name">Type last name</string>
-    <string name="type_first_name">Type first name</string>
+    <string name="type_full_name">Type your full name</string>
     <string name="users_photo_selection">Users photo selection</string>
     <string name="sign_out">Sign Out</string>
     <string name="password">Password</string>
@@ -25,4 +24,5 @@
     <string name="sign_up_button">Sign up</string>
     <string name="log_in">Log in</string>
     <string name="sign_up_activity">Sign up</string>
+    <string name="bio">Bio</string>
 </resources>
