@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.budgetbites.Intro.Intro;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -40,9 +41,15 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+
+
         fa = FirebaseAuth.getInstance();
         fu = fa.getCurrentUser();
 
+        if(fu==null){
+            Intent i = new Intent(MainActivity.this, Intro.class);
+            startActivity(i);
+        }
 
         BottomNavigationView navView = findViewById(R.id.nav_view);
 

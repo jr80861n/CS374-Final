@@ -1,40 +1,65 @@
 package com.example.budgetbites;
 
+import static android.view.View.*;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class SignupFragment extends Fragment
+import com.google.firebase.auth.FirebaseAuth;
+
+public class SignupFragment extends AppCompatActivity
 {
 
-   public SignupFragment() {
-   }
-
    @Override
-   public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                            Bundle savedInstanceState) {
-      View view = inflater.inflate(R.layout.fragment_signup, container, false);
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.fragment_signup);
 
-      Button buttonCreateAccount = view.findViewById(R.id.button_signup);
-      buttonCreateAccount.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View view) {
-            EditText editTextName = view.findViewById(R.id.edit_name);
-            EditText editTextEmail = view.findViewById(R.id.edit_email);
-            EditText editTextPassword = view.findViewById(R.id.edit_password);
+      EditText editTextName = findViewById(R.id.edit_name);
+      EditText editTextEmail = findViewById(R.id.edit_email);
+      EditText editTextPassword = findViewById(R.id.edit_password);
+      Button buttonCreateAccount = findViewById(R.id.button_signup);
+      buttonCreateAccount.setOnClickListener(v -> {
 
-            String name = editTextName.getText().toString();
-            String email = editTextEmail.getText().toString();
-            String password = editTextPassword.getText().toString();
+         String name = editTextName.getText().toString();
+         String email = editTextEmail.getText().toString();
+         String password = editTextPassword.getText().toString();
 
-         }
+            if (name.isEmpty()) {
+                editTextName.setError("Please enter your name");
+                editTextName.requestFocus();
+            } else if (email.isEmpty()) {
+                editTextEmail.setError("Please enter your email");
+                editTextEmail.requestFocus();
+            } else if (password.isEmpty()) {
+                editTextPassword.setError("Please enter your password");
+                editTextPassword.requestFocus();
+            } else if (name.isEmpty() && email.isEmpty() && password.isEmpty()) {
+                editTextName.setError("Please enter your name");
+                editTextEmail.setError("Please enter your email");
+                editTextPassword.setError("Please enter your password");
+                editTextName.requestFocus();
+            } else if (!(name.isEmpty() && email.isEmpty() && password.isEmpty())) {
+                FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+                if (!task.isSuccessful()) {
+                    Toast.makeText(SignupFragment.this, "SignUp Unsuccessful, Please Try Again", Toast.LENGTH_SHORT).show();
+                } else {
+                    finish();
+                }
+                });
+            } else {
+                Toast.makeText(SignupFragment.this, "Error Occurred!", Toast.LENGTH_SHORT).show();
+            }
       });
 
-      return view;
    }
 }

@@ -11,6 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BudgetBites"
         tools:targetApi="31">
+
         <activity
             android:name=".MainActivity"
             android:exported="false">
@@ -18,12 +19,13 @@
                 android:name="android.app.lib_name"
                 android:value="" />
 
+
         </activity>
 
         <activity
             android:name=".Intro.Intro"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -33,7 +35,26 @@
         <activity
             android:name=".Intro.Intro2"
             android:exported="false"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+        <activity
+            android:name=".LoginFragment"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+
+        </activity>
+
+        <activity
+            android:name=".SignupFragment"
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -62,7 +83,6 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
 

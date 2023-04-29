@@ -1,4 +1,4 @@
-package com.example.budgetbites.ui.home;
+package com.example.budgetbites.ui.History;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,14 +12,14 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.budgetbites.databinding.FragmentHistoryBinding;
 
-public class HomeFragment extends Fragment {
+public class HistoryFragment extends Fragment {
 
     private FragmentHistoryBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        HistoryViewModel homeViewModel =
+                new ViewModelProvider(this).get(HistoryViewModel.class);
 
         binding = FragmentHistoryBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
