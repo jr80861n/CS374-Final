@@ -6,8 +6,10 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.budgetbites.LoginFragment;
 import com.example.budgetbites.MainActivity;
 import com.example.budgetbites.R;
+import com.example.budgetbites.SignupFragment;
 import com.example.budgetbites.databinding.ActivityIntroAboutBinding;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -17,7 +19,6 @@ public class Intro2 extends AppCompatActivity {
     private FirebaseAuth fa;
     private FirebaseUser fu;
 
-    private Button cont;
 
 
 
@@ -31,12 +32,21 @@ public class Intro2 extends AppCompatActivity {
         fa = FirebaseAuth.getInstance();
         fu = fa.getCurrentUser();
 
-         cont = findViewById(R.id.ContinueButton);
+         Button login = findViewById(R.id.LoginButton);
 
-         cont.setOnClickListener(v -> {
-             Intent i = new Intent(Intro2.this, MainActivity.class);
+         login.setOnClickListener(v -> {
+             Intent i = new Intent(Intro2.this, LoginFragment.class);
              startActivity(i);
+             finish();
          });
+
+         Button signup = findViewById(R.id.SignupButton);
+
+        signup.setOnClickListener(v -> {
+            Intent i = new Intent(Intro2.this, SignupFragment.class);
+            startActivity(i);
+            finish();
+        });
 
     }
 

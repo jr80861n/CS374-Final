@@ -1,5 +1,6 @@
 package com.example.budgetbites;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -30,22 +31,18 @@ public class SplashScreen extends AppCompatActivity {
 
 
         new android.os.Handler().postDelayed(() -> {
-            if(mfa.getCurrentUser()==null){
-                Toast.makeText(SplashScreen.this, "Please login to continue", Toast.LENGTH_SHORT).show();
-                startActivity(new android.content.Intent(SplashScreen.this, Intro.class));
-                finish();
-            }
-            else{
-                Toast.makeText(SplashScreen.this, "Welcome back!", Toast.LENGTH_SHORT).show();
-                startActivity(new android.content.Intent(SplashScreen.this, MainActivity.class));
-                finish();
-            }
+            Intent i = new Intent(SplashScreen.this, MainActivity.class);
+            startActivity(i);
+            finish();
         }, 2700);
 
-        FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        //FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+      
+
 
         lottie.animate();
-
 
 
 

@@ -40,14 +40,9 @@ public class Intro extends AppCompatActivity {
         cont.setOnClickListener(v -> {
             Intent i = new Intent(Intro.this, Intro2.class);
             startActivity(i);
+            finish();
         });
 
-        Button skip = findViewById(R.id.SkipButton);
-
-        skip.setOnClickListener(v -> {
-            Intent i = new Intent(Intro.this, MainActivity.class);
-            startActivity(i);
-        });
 
     }
 
