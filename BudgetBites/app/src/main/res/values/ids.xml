@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="Bio_Edit_Text" type="id">Bio</item>
+    <item name="Bio_Edit_Text" type="id" />
+    <item name="profileImageView" type="id" />
+    <item name="fullNameEdit" type="id" />
+    <item name="emailEditText" type="id" />
+    <item name="Bio_Text_Input" type="id" />
+    <item name="Save_Button" type="id" />
+    <item name="Delete_button" type="id" />
+    <item name="Sign_out" type="id" />
+    <item name="Change_password_button" type="id" />
 </resources>
