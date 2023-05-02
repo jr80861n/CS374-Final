@@ -15,19 +15,20 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.443"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoginButton"
-        app:layout_constraintVertical_bias="0.255" />
+        app:layout_constraintVertical_bias="0.589" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="202dp"
         android:layout_height="224dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="88dp"
         android:contentDescription="App Logo"
-        app:layout_constraintBottom_toTopOf="@+id/introText"
+        app:layout_constraintBottom_toTopOf="@+id/LoginButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.363"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/budgetbites" />

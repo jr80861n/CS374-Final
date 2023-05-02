@@ -9,13 +9,15 @@ android {
 
     defaultConfig {
         applicationId "com.example.budgetbites"
-        minSdk 24
+        minSdk 21
         targetSdk 33
         versionCode 1
         versionName "1.0"
 
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
 
     buildTypes {
         release {
@@ -30,6 +32,10 @@ android {
     buildFeatures {
         viewBinding true
     }
+    aaptOptions {
+        cruncherEnabled = false
+    }
+
 }
 
 dependencies {
