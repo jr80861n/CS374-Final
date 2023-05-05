@@ -26,4 +26,9 @@
     <string name="sign_up_activity">Sign up</string>
     <string name="bio">Bio</string>
     <string name="social_media">Social Media</string>
+    <string name="share">Share</string>
+    <string name="change_picture">change picture</string>
+    <string name="financial_goals">Financial Goals</string>
+    <string name="Finanaical_Challenges">Financial Challenges</string>
+    <string name="Finanaical_Succes">Financial Succeses</string>
 </resources>
