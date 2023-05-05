@@ -64,7 +64,8 @@
 
         <activity
             android:name=".Profile"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@style/Theme.Design.Light.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

@@ -66,7 +66,7 @@ startActivityForResult(intent, 1); //This is the code that will allow you to pic
         });
         changePasswordButton.setOnClickListener(v -> {
             //FirebaseAuth.getInstance().signOut();
-            Intent intent = new Intent(Profile.this, MainActivity.class);
+            Intent intent = new Intent(Profile.this, ChangePasswordActivity.class);
             startActivity(intent);
 
         });//test the change password button and make a change password activity/fragment
