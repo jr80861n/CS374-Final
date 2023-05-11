@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".ui.profile.ProfileFragment">
 
     <ScrollView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,52 +22,50 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:background="@color/teal_200"
-                android:padding="19dp">
+                android:layout_height="wrap_content"
+                android:paddingBottom="50dp"
+                android:background="@color/teal_200">
+
+                <EditText
+                    android:id="@+id/fullNameEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="88dp"
+                    android:layout_marginEnd="33dp"
+                    android:autofillHints="Write your first name"
+                    android:hint="@string/type_full_name"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/emailEditText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="32dp"
+                    android:layout_marginEnd="17dp"
+                    android:autofillHints="Write your email with a @ in it"
+                    android:ems="10"
+                    android:hint="@string/type_email"
+                    android:inputType="text|textEmailAddress"
+                    android:minHeight="48dp" />
 
                 <ImageView
                     android:id="@+id/profileImageView"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="13dp"
-                    android:layout_marginTop="-50dp"
+                    android:layout_width="167dp"
+                    android:layout_height="159dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="49dp"
                     android:contentDescription="@string/users_photo_selection"
-                    tools:srcCompat="@tools:sample/avatars"
-
-                    />
-
-<!--                <TextView-->
-<!--                    android:id="@+id/fullNameEdit"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_alignParentTop="true"-->
-<!--                    android:layout_centerVertical="true"-->
-<!--                    android:layout_marginStart="@+id/profileImageView"-->
-<!--                    android:layout_marginLeft="27dp"-->
-<!--                    android:layout_marginTop="97dp"-->
-<!--                    android:layout_toEndOf="@+id/profileImageView"-->
-<!--                    android:autofillHints="Write your first name"-->
-<!--                    android:hint="@string/type_full_name"-->
-<!--                    android:inputType="text"-->
-<!--                    android:minHeight="48dp"-->
-<!--                    android:textColor="@color/black"-->
-<!--                    android:textSize="20sp" />-->
-
-<!--                <TextView-->
-<!--                    android:id="@+id/emailEditText"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_below="@+id/fullNameEdit"-->
-<!--                    android:layout_marginStart="@+id/fullNameEdit"-->
-<!--                    android:layout_marginLeft="29dp"-->
-<!--                    android:layout_toRightOf="@+id/profileImageView"-->
-<!--                    android:autofillHints="Write your email with a @ in it"-->
-<!--                    android:ems="10"-->
-<!--                    android:hint="@string/type_email"-->
-<!--                    android:inputType="text|textEmailAddress"-->
-<!--                    android:minHeight="48dp" />-->
+                    tools:srcCompat="@tools:sample/avatars" />
 
                 <Button
                     android:id="@+id/Change_Picture"
@@ -153,7 +151,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="40dp">
+                >
 
                 <ScrollView
                     android:layout_width="match_parent"
@@ -302,6 +300,16 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <Button
+                    android:id="@+id/Sign_out"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="32dp"
+                    android:text="@string/sign_out"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <Button
                     android:id="@+id/Delete_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -312,16 +320,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.595"
                     app:layout_constraintStart_toEndOf="@+id/Save_Button" />
-
-                <Button
-                    android:id="@+id/Sign_out"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="32dp"
-                    android:text="@string/sign_out"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
 
                 <Button
                     android:id="@+id/Change_password_button"

@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,7 +24,6 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.budgetbites.ChangePasswordActivity;
 import com.example.budgetbites.MainActivity;
 import com.example.budgetbites.R;
-import com.example.budgetbites.databinding.ActivityProfileBinding;
 import com.example.budgetbites.databinding.FragmentProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -32,7 +32,7 @@ import org.w3c.dom.Text;
 public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
-    private TextView BioEditText;
+    private EditText fullNameEditText, emailEditText, BioEditText;
     private ImageView profileImageView;
     private View root;
     private Context context;
@@ -44,10 +44,11 @@ public class ProfileFragment extends Fragment {
         root = binding.getRoot();
         context = root.getContext();
 
-//        fullNameEditText = root.findViewById(R.id.fullNameEdit);
-//        emailEditText = root.findViewById(R.id.emailEditText);
+        fullNameEditText = root.findViewById(R.id.fullNameEdit);
+        emailEditText = root.findViewById(R.id.emailEditText);
         BioEditText = root.findViewById(R.id.Bio_Edit_Text);
         profileImageView = root.findViewById(R.id.profileImageView);
+        Button changePic = root.findViewById(R.id.Change_Picture);
         Button saveButton = root.findViewById(R.id.Save_Button);
         Button deleteButton = root.findViewById(R.id.Delete_button);
         Button signOutButton = root.findViewById(R.id.Sign_out);
@@ -58,8 +59,8 @@ public class ProfileFragment extends Fragment {
         String fullName = sharedPreferences.getString("fullName", "");
         String email = sharedPreferences.getString("email", "");
         String profileImage = sharedPreferences.getString("profileImage", "");
-//        fullNameEditText.setText(fullName);
-//        emailEditText.setText(email);
+        fullNameEditText.setText(fullName);
+        emailEditText.setText(email);
         BioEditText.setText(BioEditText.getText());
         if (!profileImage.equals("")) {
             profileImageView.setImageURI(Uri.parse(profileImage));
@@ -68,9 +69,9 @@ public class ProfileFragment extends Fragment {
 
 
         //Setting up the Image feature that will allow you to pick a picture from your gallery
-        profileImageView.setOnClickListener(v -> {
+        changePic.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI); //This is the intent that will allow you to pick a picture from your gallery
-            context.startActivity(intent); //This is the code that will allow you to pick a picture from your gallery
+            getActivity().startActivityForResult(intent,1); //This is the code that will allow you to pick a picture from your gallery
 
         });
 
@@ -110,6 +111,8 @@ public class ProfileFragment extends Fragment {
             editor.putString("profileImage", selectedImage.toString());
             editor.apply();
 
+            Toast.makeText(context, "Image Changed", Toast.LENGTH_SHORT).show();
+
         }
 
 
@@ -119,23 +122,23 @@ public class ProfileFragment extends Fragment {
     //Method that will give you the ability to save the user's profile data
     public void saveProfileInfo(){
 
-//        String fullName = fullNameEditText.getText().toString();
-//        String email = emailEditText.getText().toString();
+        String fullName = fullNameEditText.getText().toString();
+        String email = emailEditText.getText().toString();
         String Bio = BioEditText.getText().toString();
 
-        //Validating the user's input
-//        if(fullName.equals("") || email.equals("")){
-//            Toast.makeText(context, "Please enter all the information", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
+//        Validating the user's input
+        if(fullName.equals("") || email.equals("")){
+            Toast.makeText(context, "Please enter all the information", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
 
 
         //This is where you would save the user's profile data to the database
         SharedPreferences preferences = context.getSharedPreferences("profile_info", MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-//        editor.putString("fullName", fullName);
-//        editor.putString("email", email);
+        editor.putString("fullName", fullName);
+        editor.putString("email", email);
         editor.putString("Bio", Bio);
         editor.apply();
 
@@ -157,8 +160,8 @@ public class ProfileFragment extends Fragment {
 
 
         //Data that will be deleted from the database
-//        fullNameEditText.setText("");
-//        emailEditText.setText("");
+        fullNameEditText.setText("");
+        emailEditText.setText("");
         profileImageView.setImageResource(R.drawable.no_profile_picture_icon);//change the name
         BioEditText.setText("");
 
@@ -172,4 +175,5 @@ public class ProfileFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
+
 }
