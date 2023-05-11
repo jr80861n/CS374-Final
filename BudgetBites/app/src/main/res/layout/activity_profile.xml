@@ -36,38 +36,38 @@
 
                     />
 
-                <EditText
-                    android:id="@+id/fullNameEdit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentTop="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="@+id/profileImageView"
-                    android:layout_marginLeft="27dp"
-                    android:layout_marginTop="97dp"
-                    android:layout_toRightOf="@+id/profileImageView"
-                    android:autofillHints="Write your first name"
-                    android:ems="10"
-                    android:hint="@string/type_full_name"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:textColor="@color/black"
-                    android:textSize="20sp" />
+<!--                <EditText-->
+<!--                    android:id="@+id/fullNameEdit"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_alignParentTop="true"-->
+<!--                    android:layout_centerVertical="true"-->
+<!--                    android:layout_marginStart="@+id/profileImageView"-->
+<!--                    android:layout_marginLeft="27dp"-->
+<!--                    android:layout_marginTop="97dp"-->
+<!--                    android:layout_toRightOf="@+id/profileImageView"-->
+<!--                    android:autofillHints="Write your first name"-->
+<!--                    android:ems="10"-->
+<!--                    android:hint="@string/type_full_name"-->
+<!--                    android:inputType="text"-->
+<!--                    android:minHeight="48dp"-->
+<!--                    android:textColor="@color/black"-->
+<!--                    android:textSize="20sp" />-->
 
-                <EditText
-                    android:id="@+id/emailEditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/fullNameEdit"
-                    android:layout_marginStart="@+id/fullNameEdit"
-                    android:layout_marginLeft="29dp"
-                    android:layout_toRightOf="@+id/profileImageView"
-                    android:autofillHints="Write your email with a @ in it"
-                    android:ems="10"
-                    android:hint="@string/type_email"
-                    android:inputType="text|textEmailAddress"
-                    android:minHeight="48dp"
-                     />
+<!--                <EditText-->
+<!--                    android:id="@+id/emailEditText"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:layout_below="@+id/fullNameEdit"-->
+<!--                    android:layout_marginStart="@+id/fullNameEdit"-->
+<!--                    android:layout_marginLeft="29dp"-->
+<!--                    android:layout_toRightOf="@+id/profileImageView"-->
+<!--                    android:autofillHints="Write your email with a @ in it"-->
+<!--                    android:ems="10"-->
+<!--                    android:hint="@string/type_email"-->
+<!--                    android:inputType="text|textEmailAddress"-->
+<!--                    android:minHeight="48dp"-->
+<!--                     />-->
 
                 <Button
                     android:id="@+id/Change_Picture"
@@ -103,7 +103,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"
-                    android:padding="16dp">
+                    android:padding="15dp">
 
                     <TextView
                         android:layout_width="wrap_content"
