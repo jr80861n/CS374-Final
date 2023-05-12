@@ -67,11 +67,10 @@ public class ProfileFragment extends Fragment {
         }// test the if statement
 
 
-
         //Setting up the Image feature that will allow you to pick a picture from your gallery
         changePic.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI); //This is the intent that will allow you to pick a picture from your gallery
-            getActivity().startActivityForResult(intent,1); //This is the code that will allow you to pick a picture from your gallery
+            startActivityForResult(intent,1); //This is the code that will allow you to pick a picture from your gallery
 
         });
 
@@ -97,7 +96,6 @@ public class ProfileFragment extends Fragment {
         return root;
     }
 
-    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
