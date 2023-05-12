@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout"
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:background="@drawable/holder_shape">
@@ -39,7 +40,7 @@
         app:layout_constraintVertical_bias="0.506" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/appCompatButton"
+        android:id="@+id/delete_button"
         android:layout_width="59dp"
         android:layout_height="61dp"
         android:background="@drawable/fd6j6a9cb3fmulqjnkb53tdrj5_f6b6d02f2dbef441cd05dede6e846329"
