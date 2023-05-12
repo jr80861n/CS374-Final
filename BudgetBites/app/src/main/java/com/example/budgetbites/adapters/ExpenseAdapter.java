@@ -8,15 +8,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.budgetbites.Expenses;
 import com.example.budgetbites.R;
 import com.example.budgetbites.models.Values;
-
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -25,16 +23,19 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Iterator;
 
-public class IncomeAdapter extends FirebaseRecyclerAdapter<Values,incomeHolder> {
+public class ExpenseAdapter extends FirebaseRecyclerAdapter<Values,expenseHolder> {
     DatabaseReference reference;
 
-    public IncomeAdapter(@NonNull FirebaseRecyclerOptions<Values> op, DatabaseReference ref) {
+    public ExpenseAdapter(@NonNull FirebaseRecyclerOptions<Values> op, DatabaseReference ref) {
         super(op);
         reference = ref;
     }
 
     @Override
-    protected void onBindViewHolder(@NonNull incomeHolder holder, int position, @NonNull Values model) {
+    protected void onBindViewHolder(@NonNull expenseHolder holder, int position, @NonNull Values model) {
+        if(holder==null||model==null){
+            return;
+        }
         holder.dateHolder.setText(model.date);
         holder.valueHolder.setText(model.value);
         holder.button.setOnClickListener(new View.OnClickListener() {
@@ -63,17 +64,17 @@ public class IncomeAdapter extends FirebaseRecyclerAdapter<Values,incomeHolder> 
 
     @NonNull
     @Override
-    public incomeHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public expenseHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
-        View view = inflater.inflate(R.layout.incomes, parent, false);
-        return new incomeHolder(view);
+        View view = inflater.inflate(R.layout.expenses, parent, false);
+        return new expenseHolder(view);
     }
 }
 
-class incomeHolder extends RecyclerView.ViewHolder{
+class expenseHolder extends RecyclerView.ViewHolder{
     AppCompatButton button;
     TextView dateHolder, valueHolder;
-    public incomeHolder(@NonNull View itemView) {
+    public expenseHolder(@NonNull View itemView) {
         super(itemView);
         button = itemView.findViewById(R.id.delete_button);
         dateHolder = itemView.findViewById(R.id.date_text);
