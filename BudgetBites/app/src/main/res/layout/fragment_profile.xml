@@ -34,8 +34,8 @@
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
-                    android:layout_marginTop="88dp"
-                    android:layout_marginEnd="33dp"
+                    android:layout_marginTop="142dp"
+                    android:layout_marginEnd="34dp"
                     android:autofillHints="Write your first name"
                     android:hint="@string/type_full_name"
                     android:inputType="text"
@@ -49,8 +49,8 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentEnd="true"
-                    android:layout_marginTop="32dp"
-                    android:layout_marginEnd="17dp"
+                    android:layout_marginTop="44dp"
+                    android:layout_marginEnd="8dp"
                     android:autofillHints="Write your email with a @ in it"
                     android:ems="10"
                     android:hint="@string/type_email"
@@ -66,6 +66,8 @@
                     android:layout_marginStart="13dp"
                     android:layout_marginTop="37dp"
                     android:contentDescription="@string/users_photo_selection"
+                    android:maxWidth="167dp"
+                    android:maxHeight="159dp"
                     tools:srcCompat="@tools:sample/avatars" />
 
                 <androidx.appcompat.widget.AppCompatButton
