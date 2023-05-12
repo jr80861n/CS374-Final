@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.profile.ProfileFragment">
+    tools:context=".ui.profile.ProfileFragment"
+    android:paddingBottom="?attr/actionBarSize">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -67,7 +68,7 @@
                     android:contentDescription="@string/users_photo_selection"
                     tools:srcCompat="@tools:sample/avatars" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/Change_Picture"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -289,49 +290,38 @@
                     </com.google.android.material.textfield.TextInputLayout>
                 </ScrollView>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/Save_Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="96dp"
-                    android:layout_marginBottom="118dp"
                     android:text="@string/save_Button"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/Sign_out"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="32dp"
                     android:text="@string/sign_out"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintBottom_toBottomOf="parent" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/Delete_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="48dp"
-                    android:layout_marginBottom="116dp"
                     android:text="@string/delete_Button"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.595"
                     app:layout_constraintStart_toEndOf="@+id/Save_Button" />
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/Change_password_button"
                     android:layout_width="184dp"
                     android:layout_height="56dp"
-                    android:layout_marginBottom="212dp"
 
                     android:text="@string/change_password"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.515"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintHorizontal_bias="0.515" />
 
             </LinearLayout>
 
