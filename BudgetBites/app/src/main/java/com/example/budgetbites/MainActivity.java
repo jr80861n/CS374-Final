@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.budgetbites.Intro.Intro;
+import com.example.budgetbites.adapters.Thread;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -73,10 +74,12 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        Thread t = new Thread(this);
+        t.start();
     }
 
-
-    private void getQuote() {
+    public void getQuote() {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url("https://api.adviceslip.com/advice")
@@ -115,12 +118,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void showAdvice(Quote adviceSlip) {
-        Snackbar.make(binding.getRoot(), adviceSlip.getQuote(), Snackbar.LENGTH_LONG).show();
+    private void showAdvice(Quote quote) {
+        Snackbar.make(binding.getRoot(), quote.getQuote(), Snackbar.LENGTH_LONG).show();
     }
-
-
-
-
-
 }
