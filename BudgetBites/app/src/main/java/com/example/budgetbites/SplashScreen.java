@@ -27,7 +27,6 @@ public class SplashScreen extends AppCompatActivity {
         setContentView(R.layout.activity_splash_screen);
         lottie = findViewById(R.id.lottie);
         mfa = FirebaseAuth.getInstance();
-       // FirebaseAnalytics mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
         new android.os.Handler().postDelayed(() -> {
