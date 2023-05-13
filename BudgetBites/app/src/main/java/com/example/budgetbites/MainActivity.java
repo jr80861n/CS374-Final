@@ -20,11 +20,22 @@ import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.budgetbites.databinding.ActivityMainBinding;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.api.Advice;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+
+import okhttp3.Call;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,12 +45,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
 
 
 
@@ -60,6 +74,53 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
     }
+
+
+    private void getQuote() {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://api.adviceslip.com/advice")
+                .build();
+        client.newCall(request).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, IOException e){
+                e.printStackTrace();
+            }
+
+
+            public void onResponse(Call call, Response response) throws IOException {
+                String responseString = response.body().string();
+                try {
+                    JSONObject responseObject = new JSONObject(responseString);
+                    JSONObject slipObject = responseObject.getJSONObject("slip");
+                    int slipId = slipObject.getInt("id");
+                    String advice = slipObject.getString("advice");
+
+                    Quote quote = new Quote();
+                    quote.setId(slipId);
+                    quote.setAdvice(advice);
+
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            showAdvice(quote);
+                        }
+                    });
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void showAdvice(Quote adviceSlip) {
+        Snackbar.make(binding.getRoot(), adviceSlip.getQuote(), Snackbar.LENGTH_LONG).show();
+    }
+
+
+
 
 
 }
