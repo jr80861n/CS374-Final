@@ -2,6 +2,7 @@ package com.example.budgetbites;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -42,7 +43,7 @@ public class Expenses extends AppCompatActivity {
         }
 
         userRef = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
-        DatabaseReference expenseRef = userRef.child("Expense");
+        DatabaseReference expenseRef = userRef.child("Expenses");
         options = new FirebaseRecyclerOptions.Builder<Values>().setQuery(expenseRef,Values.class).build();
         rec = findViewById(R.id.expense_recycler);
         adapter = new ExpenseAdapter(options, expenseRef);
@@ -50,6 +51,13 @@ public class Expenses extends AppCompatActivity {
 
         rec.setAdapter(adapter);
         rec.setLayoutManager(manager);
+
+        findViewById(R.id.expense_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

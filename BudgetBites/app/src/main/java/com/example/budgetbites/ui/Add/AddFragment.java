@@ -21,13 +21,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.type.Date;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Random;
 
 public class AddFragment extends Fragment
 {
 
    private FragmentAddBinding binding;
-   private String date;
+   Calendar calendar = Calendar.getInstance();
+   int month = calendar.get(Calendar.MONTH) + 1;
+   int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+   int year = calendar.get(Calendar.YEAR);
+
+   // Create a date format and convert the date to a string
+   SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
+   String currentDate = dateFormat.format(calendar.getTime());
+   private String date = currentDate;
 
    public View onCreateView(@NonNull LayoutInflater inflater,
                             ViewGroup container, Bundle savedInstanceState)
@@ -63,14 +74,14 @@ public class AddFragment extends Fragment
                return;
             }
             String rand = new Random().toString();
-            if (date.isEmpty())
+            if (date==null||date.isEmpty())
             {
                Toast.makeText(root.getContext(), "Add a date", Toast.LENGTH_SHORT).show();
                return;
             }
             Values values = new Values(rand, date, binding.editValue.getText().toString());
             Boolean flag = favsRef.push().setValue(values).isSuccessful();
-            if (!flag)
+            if (flag)
             {
                Toast.makeText(root.getContext(), "Unsuccessful", Toast.LENGTH_SHORT).show();
             } else

@@ -84,6 +84,24 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".Incomes"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".Expenses"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         
 
     </application>

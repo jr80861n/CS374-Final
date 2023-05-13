@@ -2,6 +2,7 @@ package com.example.budgetbites;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -50,6 +51,13 @@ public class Incomes extends AppCompatActivity {
 
         rec.setAdapter(adapter);
         rec.setLayoutManager(manager);
+
+        findViewById(R.id.income_back).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

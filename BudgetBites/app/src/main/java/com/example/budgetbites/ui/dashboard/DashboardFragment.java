@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.budgetbites.Expenses;
+import com.example.budgetbites.Incomes;
 import com.example.budgetbites.Intro.Intro2;
 import com.example.budgetbites.databinding.FragmentDashboardBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +28,21 @@ public class DashboardFragment extends Fragment {
         binding = FragmentDashboardBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        binding.Incomes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(root.getContext(), Incomes.class);
+                startActivity(i1);
+            }
+        });
+
+        binding.Expenses.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i1 = new Intent(root.getContext(), Expenses.class);
+                startActivity(i1);
+            }
+        });
 
         return root;
     }
