@@ -73,7 +73,7 @@ public class AddFragment extends Fragment
                Toast.makeText(root.getContext(), "No option selected", Toast.LENGTH_SHORT).show();
                return;
             }
-            String rand = new Random().toString();
+            String rand = String.valueOf(new Random().nextInt());
             if (date==null||date.isEmpty())
             {
                Toast.makeText(root.getContext(), "Add a date", Toast.LENGTH_SHORT).show();
