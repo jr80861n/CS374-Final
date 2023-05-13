@@ -37,21 +37,35 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/expense_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:fontFamily="sans-serif-black"
-            android:hapticFeedbackEnabled="true"
-            android:text="Back"
-            android:textStyle="bold"
-            android:textColor="@color/red"
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/back_button_animation"
+            android:layout_width="50dp"
+            android:layout_height="70dp"
+            app:lottie_rawRes="@raw/arrowleftcircle"
+            app:lottie_autoPlay="false"
+            app:lottie_loop="false"
+            app:lottie_speed="1"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@drawable/title_shape"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+
+<!--        <androidx.appcompat.widget.AppCompatButton-->
+<!--            android:id="@+id/expense_back"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="16dp"-->
+<!--            android:fontFamily="sans-serif-black"-->
+<!--            android:hapticFeedbackEnabled="true"-->
+<!--            android:text="Back"-->
+<!--            android:textStyle="bold"-->
+<!--            android:textColor="@color/red"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            android:background="@drawable/title_shape"/>-->
+   </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
