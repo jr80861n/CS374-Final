@@ -31,4 +31,8 @@
     <string name="financial_goals">Financial Goals</string>
     <string name="Finanaical_Challenges">Financial Challenges</string>
     <string name="Finanaical_Succes">Financial Succeses</string>
+    <string-array name="options_array">
+        <item>Income</item>
+        <item>Expense</item>
+    </string-array>
 </resources>

@@ -1,26 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-tools:context=".ui.dashboard.DashboardFragment"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:paddingBottom="?attr/actionBarSize">
-<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.dashboard.DashboardFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:paddingBottom="?attr/actionBarSize">
 
-    <CalendarView
-        android:id="@+id/calendarView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <CalendarView
+            android:id="@+id/calendarView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/spinnerOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/options_array" />
+
+        <EditText
+            android:id="@+id/editValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter value" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Add"
+            app:backgroundTint="#FF0000"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:onClick="add" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
 
+    </LinearLayout>
 </ScrollView>
