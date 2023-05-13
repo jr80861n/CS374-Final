@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.budgetbites.models.UserData;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
@@ -58,6 +59,8 @@ public class SignupFragment extends AppCompatActivity
                     Toast.makeText(SignupFragment.this, "SignUp Unsuccessful, Please Try Again", Toast.LENGTH_SHORT).show();
                 } else {
                     FirebaseDatabase.getInstance().getReference().child(Objects.requireNonNull("Users")).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid()).addOnCompleteListener(task1 -> {
+                        UserData data = new UserData(name, email, "","","","","");
+                        FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Profile").setValue(data);
                         Toast.makeText(this, "Account Made", Toast.LENGTH_SHORT).show();
                         finish();
                     });
