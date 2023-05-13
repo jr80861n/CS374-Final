@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.example.budgetbites.Intro.Intro2;
 import com.example.budgetbites.adapters.ExpenseAdapter;
 import com.example.budgetbites.models.Values;
@@ -37,7 +36,7 @@ public class Incomes extends AppCompatActivity {
 
         user = FirebaseAuth.getInstance().getCurrentUser();
 
-        if (user == null) {
+        if(user==null){
             Toast.makeText(this, "How did you get here without signing in?", Toast.LENGTH_SHORT).show();
             Intent i = new Intent(this, Intro2.class);
             startActivity(i);
@@ -45,7 +44,7 @@ public class Incomes extends AppCompatActivity {
 
         userRef = FirebaseDatabase.getInstance().getReference("Users").child(user.getUid());
         DatabaseReference expenseRef = userRef.child("Incomes");
-        options = new FirebaseRecyclerOptions.Builder<Values>().setQuery(expenseRef, Values.class).build();
+        options = new FirebaseRecyclerOptions.Builder<Values>().setQuery(expenseRef,Values.class).build();
         rec = findViewById(R.id.income_recycler);
         adapter = new ExpenseAdapter(options, expenseRef);
         manager = new LinearLayoutManager(this);
@@ -53,22 +52,13 @@ public class Incomes extends AppCompatActivity {
         rec.setAdapter(adapter);
         rec.setLayoutManager(manager);
 
-//        findViewById(R.id.income_back).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                finish();
-//            }
-//        });
-//    }
-        LottieAnimationView backButton = findViewById(R.id.Incomeback_button_animation);
-        backButton.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.income_back).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
     }
-
 
     @Override
     protected void onStart() {
