@@ -111,3 +111,8 @@ Through BudgetBites, students can learn how to create and maintain a budget, tra
 
 </p>
 
+## Final Prototype
+<a href="https://easyupload.io/x6y7o0">Final APK</a> <br>
+<a href="https://docs.google.com/presentation/d/1iEpe6akgCCg-2Mzx9gvi_22KY63s_FZm3oQEHa88QAo/edit?usp=sharing">Presentation</a> <br>
+<a href="https://youtu.be/ivBluAN2D4Q">Youtube Video</a>
+
