@@ -35,7 +35,7 @@ public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
     private EditText fullNameEditText, emailEditText, BioEditText,GoalsEditText, ChallengesEditText, SuccessesEditText;
-    private ImageView profileImageView;
+    private ImageView profileImageView, twitterImageView, instagramImageView, facebookImageView, linkedinImageView, ticktockImageView;
     private View root;
     private Context context;
 
@@ -56,6 +56,11 @@ public class ProfileFragment extends Fragment {
         emailEditText = root.findViewById(R.id.emailEditText);
         BioEditText = root.findViewById(R.id.Bio_Edit_Text);
         profileImageView = root.findViewById(R.id.profileImageView);
+        twitterImageView = root.findViewById(R.id.twitterImageView);
+        instagramImageView = root.findViewById(R.id.instagramImageView);
+        facebookImageView = root.findViewById(R.id.facebookImageView);
+        linkedinImageView = root.findViewById(R.id.linkedinImageView);
+        ticktockImageView = root.findViewById(R.id.ticktockImageView);
         Button changePic = root.findViewById(R.id.Change_Picture);
         Button saveButton = root.findViewById(R.id.Save_Button);
         Button signOutButton = root.findViewById(R.id.Sign_out);
@@ -114,6 +119,47 @@ public class ProfileFragment extends Fragment {
             context.startActivity(intent);
 
         });
+
+        twitterImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_TEXT, "Check out this app I found called Budget Bites! It's a great way to track your spending and save money!");
+            intent.setType("text/plain");
+            intent.setPackage("com.twitter.android");
+            startActivity(intent);
+        });
+
+        instagramImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_TEXT, "Check out this app I found called Budget Bites! It's a great way to track your spending and save money!");
+            intent.setType("text/plain");
+            intent.setPackage("com.instagram.android");
+            startActivity(intent);
+        });
+
+        facebookImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_TEXT, "Check out this app I found called Budget Bites! It's a great way to track your spending and save money!");
+            intent.setType("text/plain");
+            intent.setPackage("com.facebook.android");
+            startActivity(intent);
+        });
+
+        linkedinImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_TEXT, "Check out this app I found called Budget Bites! It's a great way to track your spending and save money!");
+            intent.setType("text/plain");
+            intent.setPackage("com.linkedin.android");
+            startActivity(intent);
+        });
+
+        ticktockImageView.setOnClickListener(v -> {
+            Intent intent = new Intent(Intent.ACTION_SEND);
+            intent.putExtra(Intent.EXTRA_TEXT, "Check out this app I found called Budget Bites! It's a great way to track your spending and save money!");
+            intent.setType("text/plain");
+            intent.setPackage("com.zhiliaoapp.musically");
+            startActivity(intent);
+        });
+
 
 
 
