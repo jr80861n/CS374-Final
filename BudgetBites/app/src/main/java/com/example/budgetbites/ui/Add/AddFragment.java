@@ -21,13 +21,24 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.type.Date;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Locale;
 import java.util.Random;
 
 public class AddFragment extends Fragment
 {
 
    private FragmentAddBinding binding;
-   private String date;
+   Calendar calendar = Calendar.getInstance();
+   int month = calendar.get(Calendar.MONTH) + 1;
+   int dayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+   int year = calendar.get(Calendar.YEAR);
+
+   // Create a date format and convert the date to a string
+   SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy", Locale.getDefault());
+   String currentDate = dateFormat.format(calendar.getTime());
+   private String date = currentDate;
 
    public View onCreateView(@NonNull LayoutInflater inflater,
                             ViewGroup container, Bundle savedInstanceState)
