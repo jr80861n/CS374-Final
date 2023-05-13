@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/title_bar"
         android:layout_width="0dp"
         android:layout_height="62dp"
-        android:background="#BD3939"
+        android:background="@color/red"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,7 +24,6 @@
             android:fadingEdge="none"
             android:fontFamily="sans-serif-black"
             android:gravity="center"
-            android:hapticFeedbackEnabled="false"
             android:shadowColor="#EFE5E5"
             android:text="Incomes"
             android:textColor="#CC2C2C"
@@ -45,9 +45,11 @@
             android:hapticFeedbackEnabled="true"
             android:text="Back"
             android:textStyle="bold"
+            android:textColor="@color/red"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/title_shape"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
