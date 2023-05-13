@@ -1,33 +1,104 @@
 package com.example.budgetbites.ui.Add;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.budgetbites.Intro.Intro2;
+import com.example.budgetbites.MainActivity;
 import com.example.budgetbites.databinding.FragmentAddBinding;
+import com.example.budgetbites.models.Values;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.type.Date;
 
-public class AddFragment extends Fragment {
+import java.util.Random;
 
-    private FragmentAddBinding binding;
+public class AddFragment extends Fragment
+{
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentAddBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+   private FragmentAddBinding binding;
+   private String date;
 
-        binding.
+   public View onCreateView(@NonNull LayoutInflater inflater,
+                            ViewGroup container, Bundle savedInstanceState)
+   {
+      binding = FragmentAddBinding.inflate(inflater, container, false);
+      View root = binding.getRoot();
+
+      binding.btnAdd.setOnClickListener(new View.OnClickListener()
+      {
+         @Override
+         public void onClick(View v)
+         {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            if (user == null)
+            {
+               Toast.makeText(root.getContext(), "Please Login First", Toast.LENGTH_SHORT).show();
+               startActivity(new Intent(root.getContext(), Intro2.class));
+               return;
+            }
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Users");
+            DatabaseReference favsRef;
+            String selctOption = binding.spinnerOptions.getSelectedItem().toString();
+
+            if (selctOption.equals("Income"))
+            {
+               favsRef = reference.child(user.getUid()).child("Incomes");
+            } else if (selctOption.equals("Expense"))
+            {
+               favsRef = reference.child(user.getUid()).child("Expenses");
+            } else
+            {
+               Toast.makeText(root.getContext(), "No option selected", Toast.LENGTH_SHORT).show();
+               return;
+            }
+            String rand = new Random().toString();
+            if (date.isEmpty())
+            {
+               Toast.makeText(root.getContext(), "Add a date", Toast.LENGTH_SHORT).show();
+               return;
+            }
+            Values values = new Values(rand, date, binding.editValue.getText().toString());
+            Boolean flag = favsRef.push().setValue(values).isSuccessful();
+            if (!flag)
+            {
+               Toast.makeText(root.getContext(), "Unsuccessful", Toast.LENGTH_SHORT).show();
+            } else
+            {
+               Toast.makeText(root.getContext(), "Successful", Toast.LENGTH_SHORT).show();
+            }
+         }
+      });
+
+      CalendarView calendarView = binding.calendarView;
+
+      calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener()
+      {
+         @Override
+         public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth)
+         {
+            date = "" + month + "/" + dayOfMonth + "/" + year;
+         }
+      });
 
 
-        return root;
-    }
+      return root;
+   }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
-    }
+   @Override
+   public void onDestroyView()
+   {
+      super.onDestroyView();
+      binding = null;
+   }
 }
