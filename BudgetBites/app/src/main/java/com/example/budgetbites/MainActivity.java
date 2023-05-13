@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.example.budgetbites.Intro.Intro;
+import com.example.budgetbites.adapters.Thread;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -59,7 +60,51 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_activity_main);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
+
+        Thread t = new Thread(this);
+        t.start();
     }
 
+    public void getQuote() {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url("https://api.adviceslip.com/advice")
+                .build();
+        client.newCall(request).enqueue(new okhttp3.Callback() {
+            @Override
+            public void onFailure(Call call, IOException e){
+                e.printStackTrace();
+            }
 
+
+            public void onResponse(Call call, Response response) throws IOException {
+                String responseString = response.body().string();
+                try {
+                    JSONObject responseObject = new JSONObject(responseString);
+                    JSONObject slipObject = responseObject.getJSONObject("slip");
+                    int slipId = slipObject.getInt("id");
+                    String advice = slipObject.getString("advice");
+
+                    Quote quote = new Quote();
+                    quote.setId(slipId);
+                    quote.setAdvice(advice);
+
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            showAdvice(quote);
+                        }
+                    });
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    private void showAdvice(Quote quote) {
+        Snackbar.make(binding.getRoot(), quote.getQuote(), Snackbar.LENGTH_LONG).show();
+    }
 }
