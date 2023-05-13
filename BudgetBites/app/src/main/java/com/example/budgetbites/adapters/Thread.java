@@ -20,7 +20,7 @@ public class Thread extends java.lang.Thread {
                         activity.getQuote();
                     }
                 });
-                Thread.sleep(10000);
+                Thread.sleep(100000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
