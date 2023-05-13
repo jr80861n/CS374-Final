@@ -63,14 +63,14 @@ public class AddFragment extends Fragment
                return;
             }
             String rand = new Random().toString();
-            if (date.isEmpty())
+            if (date==null||date.isEmpty())
             {
                Toast.makeText(root.getContext(), "Add a date", Toast.LENGTH_SHORT).show();
                return;
             }
             Values values = new Values(rand, date, binding.editValue.getText().toString());
             Boolean flag = favsRef.push().setValue(values).isSuccessful();
-            if (!flag)
+            if (flag)
             {
                Toast.makeText(root.getContext(), "Unsuccessful", Toast.LENGTH_SHORT).show();
             } else

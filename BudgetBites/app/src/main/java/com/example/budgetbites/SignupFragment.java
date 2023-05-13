@@ -15,6 +15,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.Objects;
 
 public class SignupFragment extends AppCompatActivity
 {
@@ -53,7 +57,10 @@ public class SignupFragment extends AppCompatActivity
                 if (!task.isSuccessful()) {
                     Toast.makeText(SignupFragment.this, "SignUp Unsuccessful, Please Try Again", Toast.LENGTH_SHORT).show();
                 } else {
-                    finish();
+                    FirebaseDatabase.getInstance().getReference().child(Objects.requireNonNull("Users")).setValue(FirebaseAuth.getInstance().getCurrentUser().getUid()).addOnCompleteListener(task1 -> {
+                        Toast.makeText(this, "Account Made", Toast.LENGTH_SHORT).show();
+                        finish();
+                    });
                 }
                 });
             } else {
