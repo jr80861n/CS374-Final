@@ -19,6 +19,9 @@ public class AddFragment extends Fragment {
         binding = FragmentAddBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+        binding.
+
+
         return root;
     }
 
