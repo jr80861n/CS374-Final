@@ -98,7 +98,7 @@ public class AddFragment extends Fragment
          @Override
          public void onSelectedDayChange(CalendarView view, int year, int month, int dayOfMonth)
          {
-            date = "" + month + "/" + dayOfMonth + "/" + year;
+            date = "" + (month+1) + "/" + (dayOfMonth) + "/" + (year);
          }
       });
 

@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     public void getQuote() {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("https://api.adviceslip.com/advice")
+                .url("https://api.adviceslip.com/advice/search/finance")
                 .build();
         client.newCall(request).enqueue(new okhttp3.Callback() {
             @Override
